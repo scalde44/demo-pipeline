@@ -44,7 +44,7 @@ jobs:
  
     - name: Create Git Tag
       id: tag
-      run: echo "::set-output name=tag::$(echo ${GITHUB_REF##*/}-$(date +%Y%m%d%H%M%S))"
+      run: echo "::set-output name=tag::v$(date +%Y%m%d%H%M%S)"
  
     - name: Push Git Tag
       run: git tag ${{ steps.tag.outputs.tag }} && git push origin ${{ steps.tag.outputs.tag }}
